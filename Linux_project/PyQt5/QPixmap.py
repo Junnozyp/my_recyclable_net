@@ -15,6 +15,7 @@ from model_build import (TRASH_DICT, TRASH_KIND, build_general_model,
 record_path = '../image_record'
 
 
+# function to get the trash kind of prediction
 def get_trash_kind(num):
     trash_kind = TRASH_DICT.get(num)
     trash_class = TRASH_KIND.get(trash_kind)
@@ -137,7 +138,7 @@ class Example2(QWidget):
 
         self.label_show_camera.setPixmap(self.pixmap1)
         self.label_show_result.setPixmap(self.pixmap2)
-        #self.label_show_qrcode.setPixmap(self.pixmap3)
+        # self.label_show_qrcode.setPixmap(self.pixmap3)
 
         self.N1 = QLabel(self)
         self.N1.setFixedSize(self.width_for_image, 50)
@@ -272,7 +273,7 @@ class Example2(QWidget):
             QMessageBox.information(self, "Information",
                                     first_pred_kind + " with probability: " + str(first_pred_pro) + "\n" +
                                     "Time consumption: " + str(end - start))
-            self.N2.setText("Last prediction: "+str(first_pred_kind))
+            self.N2.setText("Last prediction: " + str(first_pred_kind))
             self.label_show_qrcode.setPixmap(self.pixmap3)
             self.timer_camera.start(30)
 
